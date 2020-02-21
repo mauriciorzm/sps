@@ -15,3 +15,7 @@ body, .container{
 .profile-pic{
     border-radius: 50%;
 }
+
+p{
+    font-size: 20px;
+}
