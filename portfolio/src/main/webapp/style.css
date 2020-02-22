@@ -1,9 +1,21 @@
-#content {
-  margin-left: auto;
-  margin-right: auto;
-  width: 650px;
+* {
+    font-family: 'arial';
 }
 
-#greeting-container {
-  margin-top: 20px;
+body, .container{
+    background: rgb(209,209,209);
+    background: linear-gradient(180deg, rgba(209,209,209,1) 0%, rgba(240,240,240,1) 14%, rgba(255,255,255,1) 54%);
+}
+
+.container{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.profile-pic{
+    border-radius: 50%;
+}
+
+p{
+    font-size: 20px;
 }
