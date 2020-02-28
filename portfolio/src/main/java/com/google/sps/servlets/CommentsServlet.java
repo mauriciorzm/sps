@@ -13,6 +13,7 @@
 // limitations under the License.
 
 package com.google.sps.servlets;
+
 import com.google.gson.Gson;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,20 +27,28 @@ import javax.servlet.http.HttpServletResponse;
 public class CommentsServlet extends HttpServlet {
     private List<String> comments;
 
-  @Override
-  public void init() {
-    comments = new ArrayList<>();
-    comments.add("Hey");
-    comments.add("How");
-    comments.add("Hat");
-  }
+    @Override
+    public void init() {
+        if(comments == null)
+            comments = new ArrayList<>();
+    }
 
-  @Override
-  public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    Gson gson = new Gson();
-    String json = gson.toJson(comments);
+    @Override
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        Gson gson = new Gson();
+        String json = gson.toJson(comments);
 
-    response.setContentType("application/json;");
-    response.getWriter().println(json);
-  }
+        response.setContentType("application/json;");
+        response.getWriter().println(json);
+    }
+
+    @Override
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String text = request.getParameter("comment");
+
+        if(text != null && !text.isEmpty())
+            comments.add(text);
+
+        response.sendRedirect("/index.html"); // Redirect back to the HTML page.
+      }
 }
