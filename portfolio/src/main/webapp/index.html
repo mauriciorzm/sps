@@ -18,7 +18,7 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
   </head>
-  <body>
+  <body onload="getMessages()">
     <div class="container" style="text-align: center">
         <img src="/images/me.jpg"/ class="profile-pic col-md-3 py-6 hvr-grow">
         <h1 style="margin-top: 15px">Mauricio Ruiz</h1>
@@ -64,6 +64,7 @@
             <img src="images/2.jpg" height="300" class="px2 hvr-grow">
             <img src="images/3.jpg" height="300" class="px2 hvr-grow">
         </div>
+        <div id="comments"></div>
     </div>
     <div class="footer">
         <p style="padding-left: 20px">Mauricio Ruiz - 2020</p>

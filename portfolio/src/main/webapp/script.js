@@ -31,3 +31,14 @@ function getRandomMessage() {
     document.getElementById('message-container').innerText = message;
   });
 }
+
+function getMessages() {
+  fetch('/comments').then(response => response.json()).then((messages) => {
+    let commentsDiv = document.getElementById("comments");
+    for(message of messages){
+        let p = document.createElement("p");
+        p.innerHTML = message;
+        commentsDiv.append(p)
+    }
+  });
+}

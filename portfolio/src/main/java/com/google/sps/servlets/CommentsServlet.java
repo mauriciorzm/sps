@@ -22,32 +22,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/** Servlet that returns some example content. TODO: modify this file to handle comments data */
-@WebServlet("/data")
-public class DataServlet extends HttpServlet {
-private List<String> messages;
+@WebServlet("/comments")
+public class CommentsServlet extends HttpServlet {
+    private List<String> comments;
 
   @Override
   public void init() {
-    messages = new ArrayList<>();
-    messages.add("My favorite artists are Marilyn Manson and Björk.");
-    messages.add("My favorite movies are A Clockwork Orange and The Shining, in that order.");
-    messages.add("My favorite videogame series is God of War.");
-    messages.add("I love horror movies and videogames.");
-    messages.add("I love partying!");
-    messages.add("I listen to music 24/7.");
-    messages.add("My birthday is on November 19.");
-    messages.add("I love art.");
-    messages.add("I am a scorpio.");
-    messages.add("I draw and paint watercolors.");
-    messages.add("I love instagram.");
+    comments = new ArrayList<>();
+    comments.add("Hey");
+    comments.add("How");
+    comments.add("Hat");
   }
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    String message = messages.get((int) (Math.random() * messages.size()));
+    Gson gson = new Gson();
+    String json = gson.toJson(comments);
 
-    response.setContentType("text/html;");
-    response.getWriter().println(message);
+    response.setContentType("application/json;");
+    response.getWriter().println(json);
   }
 }
