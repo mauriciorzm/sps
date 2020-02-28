@@ -18,7 +18,7 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
   </head>
-  <body>
+  <body onload="getMessages()">
     <div class="container" style="text-align: center">
         <img src="/images/me.jpg"/ class="profile-pic col-md-3 py-6 hvr-grow">
         <h1 style="margin-top: 15px">Mauricio Ruiz</h1>
@@ -64,6 +64,14 @@
             <img src="images/2.jpg" height="300" class="px2 hvr-grow">
             <img src="images/3.jpg" height="300" class="px2 hvr-grow">
         </div>
+        <h3 style="margin-top:40px">Comments</h3>
+        <div id="comments"></div>
+        <form action="/comments" method="POST" style="margin-top:40px;">
+            <div class="form-group col-md-6" style="display: inline-block">
+                <input type="text" class="form-control" id="commentInput" placeholder="Leave a comment" name="comment">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
     </div>
     <div class="footer">
         <p style="padding-left: 20px">Mauricio Ruiz - 2020</p>
